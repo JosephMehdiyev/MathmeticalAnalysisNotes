@@ -1,0 +1,80 @@
+\chapter{Real Numbers}
+\section{Axiom of Completeness, Infimum and Supremum}
+\begin{definition}
+    A set $A \subseteq R$ is \textbf{bounded above} if $\exists b \in R$ s.t $ a \le b \ \forall a \in A$. The number $b$ is the \textbf{upper bound of  A}. We denote set of upper bounds of $A$ as $A^u$. \\
+    Similarly, we define \text{lower bounds} and the set as $A^{\ell}$.
+\end{definition}
+
+\begin{definition}[\textbf{supremum}] A upper bound $a$ of a set $S$ is called \textbf{supremum} if,
+    \[ a = \min A^{u}\]
+Mathematically we show the notation as $a = \sup S$.\\ 
+In Similar fashion, we define $b = \inf S$ for lower bounds.
+\end{definition}
+\vspace{6mm}
+\textbf{Axiom of Completeness (AoC).} Every non-empty subsets of $\mathbb{R}$ that is bounded above have supremum. The Axiom also deduces the existence of infimum in a similar fashion.\\
+\textbf{Questions: } Can infinity be supremum? Does this axiom imply existence of infimum.
+\begin{lemma}[\textbf{Epsilon Definition of supremum}]
+    $s \in \mathbb{R}$ is a supremum of a set $A \subseteq \mathbb{R}$ iff 
+    \[ \forall \ \epsilon > 0 \ \exists \ a \in A \ | \  s - \epsilon < a\] 
+    \begin{proof}[Proof sketch] The both ways of the lemma can be proven by definition of the supremum. That is, lemma 1.1.1 and definition 1.1.2 are equivalent.
+    \end{proof}
+    We use similar lemma for infimum.
+\end{lemma}
+
+\begin{proposition}[\textbf{Maximum and Supremum}] If maximum of $A \neq \{ \emptyset \} \subseteq \mathbb{R}$ exists, then \[ \max A = \sup A\]
+\begin{proof}
+    Denote $s = \sup A$ and $m = \max A$. By definition, $s = \min A^u$ and $m = A^u \cap A$. \\
+    The result is an immediate consequence of the definitions of maximum and supremum.
+
+    \vspace{4mm}
+    $m$ is a proper supremum, since $\forall x\in A$ we have $x \le m$, and since also $m \in A$, $t = \sup A < m$ is impossible.
+\end{proof}
+Similarly, we have $\min A = \inf A$.
+\end{proposition}
+\begin{proposition}[\textbf{Uniqueness of Supremum}]
+    Supremum and Infimum are unique.
+    \begin{proof}
+        For the sake of the contradiction, assume there exists two supremum $s_1, s_2$. Then by definition of supremum, we have 
+        \[ s_1 \ge s_2 \ \land \ s_2 \ge s_1 \Rightarrow s_1 = s_2\]
+        Infimum follows the similar proof.
+    \end{proof}
+\end{proposition}
+\begin{proposition}[\textbf{Existence of Infimum}]
+    AoC implies the existence of infimum for $A \subseteq \mathbb{R}$ such that $A^{\ell} \neq \emptyset$,
+    \[\inf A = -\sup(-A)\]
+    \begin{proof}
+    Since $A^l \neq \emptyset$, it follows that
+    \[\exists x \in A^{\ell} \ | \ x \le a\]
+    Then,
+    \[ -x \ge -a \Rightarrow -x \in (-A)^u \neq \emptyset \]
+    By AoC, $\sup(-A)$ exists. Rest is trivial.
+
+    \end{proof}
+\end{proposition}
+\begin{proposition}[\textbf{Operations on Supremum}]
+    The supremum holds these properties,
+    \begin{align}
+        &\sup(A+B) &= \sup(A) + \sup(B) \\
+        &\sup(A \cdot B) &= \sup(A) \cdot \sup(B) \\
+        &\text{if} \ c \ge 0, &\sup(cA) = c\sup(A)\\
+        &\text{if} \ c \le 0, &\sup(cA) = c\inf(A)
+    \end{align}
+    \begin{proof}
+        These properties directly follow from the epsilon definition of the supremum. That is, $\forall \epsilon_a, \epsilon_b, \exists a,b \in A,B$ such that,
+        \begin{align*}
+            \sup(A) -a < \epsilon_a \ \land \sup(B) -b < \epsilon_b
+        \end{align*}
+        adding these equations to each other, we have
+        \begin{align} \sup(A) + \sup(B) - (a+b) < \epsilon_a + \epsilon_b \end{align}
+        Note that $(a+b) \in A+B$, and let $\epsilon_a + \epsilon_b = \epsilon_{a+b}$. Also we know that,
+        \begin{align}\forall \epsilon_c \exists c \in A+B \ | \ \sup(A+B) - c < \epsilon_c \ \end{align}
+        but 1.5 and 1.6 both are valid, hence the conclusion. \\
+        We can similarly prove other propositions, even for inf.
+    \end{proof}
+
+\end{proposition}
+\section*{References}
+\begin{enumerate}
+    \item \url{https://math.colorado.edu/~nita/12_Axiom_of_Completeness.pdf}
+\end{enumerate}
+

@@ -1,4 +1,54 @@
 \chapter{Real Numbers}
+\section{Algebraic Objects: Fields and Order properties}
+I already studied the algebraic topics before (Linear Algebra notes). So I will skip this section.
+\section{Absolute value, epsilon-neighborhood}
+Absolute value is a function $f: \mathbb{R} \rightarrow \mathbb{R}_0$ such that,
+\begin{align*}
+    &f(x) = x \qquad \text{if} \ x \ge 0 \\
+    &f(x) = -x \qquad \text{if} \ x < 0
+\end{align*}
+Absolute value describes \textbf{Distance} between two values. It is important to think this function as distance more than some function that ``makes negative values positive''
+\begin{proposition} $\forall x,y \in \mathbb{R}$,
+    \begin{enumerate}
+        \item $ |x| \ge 0$
+        \item $|-x| = |x|$
+        \item $|xy| =|x||y|$
+        \item $|x|^2= x^2$
+        \item $|x| \le y \iff -y \le x \le y$
+        \item $-|x| \le x \le |x|$
+    \end{enumerate}
+    \begin{proof}
+        Proofs are rather simple, so I will not bother writing here.
+    \end{proof}
+\end{proposition}
+\begin{theorem}[\textbf{Triangle Inequality}] $\forall x,y \in \mathbb{R}$,
+    \[ |x+y| \le |x| + |y| \]
+    \begin{proof}
+        From the proposition we have,
+        \begin{align*}
+            &-|x| \le x  \le |x| \\
+            &-|y| \le y \le |y|
+        \end{align*}
+        Adding these equations we get
+        \[  -|x| -|y| \le x+y \le |x| +|y| \Rightarrow |x+y| \le |x| + |y|\]
+    \end{proof}
+\end{theorem}
+\begin{corollary} $\forall x,y \in \mathbb{R}$,
+    \begin{enumerate}
+        \item $ ||x| - |y|| \le |x-y|$
+        \item $|x-y| \le |x| + |y|$
+        \item $ \left| \sum_{i=1}^n a_i \right| \le  \sum_{i=1}^n |a_i|$
+    \end{enumerate}
+    \begin{proof}
+        These Corollaries are direct consequence of triangle inequality, with third inequality using the proof with induction. I will not provide proofs since they are kind of boring and time comsuming.
+    \end{proof}
+\end{corollary}
+\begin{definition}[\textbf{epsilon neighborhood}]. The $\epsilon-neighborhood$ of $a$ is defined as a set 
+    \[ V_{\epsilon}(a) = \{ x \in \mathbb{R} : |x-a| < \epsilon\}\]
+    Which is equivalent to open interval
+    \[ (a - \epsilon, a+ \epsilon)\]
+    Analysis heavily uses epsilon definitions and epsilon neighborhood for rigirous proofs. Therefore this definition is an useful tool.
+\end{definition}
 \section{Axiom of Completeness, Infimum and Supremum}
 \begin{definition}
     A set $A \subseteq R$ is \textbf{bounded above} if $\exists b \in R$ s.t $ a \le b \ \forall a \in A$. The number $b$ is the \textbf{upper bound of  A}. We denote set of upper bounds of $A$ as $A^u$. \\
@@ -12,13 +62,12 @@ In Similar fashion, we define $b = \inf S$ for lower bounds.
 \end{definition}
 \vspace{6mm}
 \textbf{Axiom of Completeness (AoC).} Every non-empty subsets of $\mathbb{R}$ that is bounded above have supremum. The Axiom also deduces the existence of infimum in a similar fashion.\\
-\textbf{Questions: } Can infinity be supremum? Does this axiom imply existence of infimum.
 \begin{lemma}[\textbf{Epsilon Definition of supremum}]
     $s \in \mathbb{R}$ is a supremum of a set $A \subseteq \mathbb{R}$ iff 
-    \[ \forall \ \epsilon > 0 \ \exists \ a \in A \ | \  s - \epsilon < a\] 
-    \begin{proof}[Proof sketch] The both ways of the lemma can be proven by definition of the supremum. That is, lemma 1.1.1 and definition 1.1.2 are equivalent.
+    \[ \forall \ \epsilon > 0  \exists  a \in A  |   s - \epsilon < a\] 
+    \begin{proof}[Proof sketch] The both ways of the lemma can be proven by definition of the supremum.
     \end{proof}
-    We use similar lemma for infimum.
+    We use similar lemma for infimum.\\
 \end{lemma}
 
 \begin{proposition}[\textbf{Maximum and Supremum}] If maximum of $A \neq \{ \emptyset \} \subseteq \mathbb{R}$ exists, then \[ \max A = \sup A\]
@@ -73,7 +122,145 @@ Similarly, we have $\min A = \inf A$.
     \end{proof}
 
 \end{proposition}
-\section*{References}
+\section{Applications of Completeness, Archimedean Property (A.P)}
+\begin{theorem}[\textbf{Archimedean Property, A.P}] $\forall x \in \mathbb{R} \ \exists n_x \in \mathbb{N}\  | \ x \le n_x$.
+    \begin{proof}
+        For the sake of contradiction, assume otherwise. Then $n \le x\ \forall n \in \mathbb{N}$, by AoC $\mathbb{N}$ has supremum, $s$. Since $s-1 < s$, $s-1$ is not a upper bound, therefore $\exists m \in \mathbb{N}$ such that $s-1 < m \Rightarrow s < m+1$. but $m+1 \in \mathbb{N}$. Therefore $s$ cannot be a supremum.
+    \end{proof}
+\end{theorem}
+\begin{theorem}[\textbf{Density of Rationals in $\mathbb{R}$}] $\forall a,b \in \mathbb{R}, \exists r \in \mathbb{Q}$ such that 
+    \[ a < r < b\]
+    \begin{proof} Since $r$ must be rational, we want to find $ m,n \in \mathbb{Z}$ such that $\frac{m}{n} = r$.\\
+    From Archimedean property,
+    \[\exists n \in \mathbb{N}: n(y-x) \ge 1\]
+    Again from Archimedean property,
+    \[\forall t \in \mathbb{R}, \exists m \in \mathbb{Z}: m-1 \le t \le m\]
+    In other words, for any real numbers, there are two consecutive integers that lies in the each boundary of the real numbers.\\
+    Let $t= nx$. Combining the inequalities, we get
+    \[nx \le m \le 1+ nx \le ny \Rightarrow x \le \frac{m}{n} \le y \]
+    \end{proof}
+\end{theorem}
+\begin{theorem}[\textbf{Density of Irrationals in $\mathbb{R}$}] $\forall x,y \in \mathbb{R}$ such that $x < y$, $\exists z \in \mathbb{I}$ such that 
+    \[ x < z <y\]
+    \begin{proof} It is direct consequence of density of Rationals. We apply density theorem on $\frac{x}{\sqrt{2}}$ and $\frac{y}{\sqrt{2}}$, which we will get $z = r\sqrt{2}, r \in \mathbb{Q}$, hence we are done.
+    \end{proof}
+\end{theorem}
+\section{Intervals}
+\begin{theorem}[\textbf{Closed and Open Intervals}]
+    If $a,b \in \mathbb{R}$ and $a<b$, then \textbf{open interval} is defined by,
+    \[ (a,b) = \{ x \in \mathbb{R}| a < x < b\}\]
+    Similarly, we define \textbf{closed interval} as,
+    \[ [a,b] = \{ x \in \mathbb{R}| a \le x \le b\} \]
+\end{theorem}
+\begin{theorem}[\textbf{Nested Intervals}]The sequence of intervals $I_n, n \in \mathbb{N}$ is nested if
+    \[ I_1 \subseteq I_2 \subseteq \ldots \subseteq I_n \subseteq \ldots \]
+    \end{theorem}
+\begin{theorem}[\textbf{Nested Interval Property}]
+    For nested intervals $\{ I_n\} = [a_n, b_n],n \in \mathbb{N}$, the below is true
+        \[ \bigcap_{i=1}^{\infty}I_n \neq \emptyset \]
+    \begin{proof}
+        Since intervals are nested intervals, $b_1 \ge a_n \forall n \in \mathbb{N}$. Hence by AoC supremum $s$ of $\{ a_n\}$ exists.
+        \\
+        We know that $a_n \le s$. But since $b_n$ is also a upper bound bigger than $s$, we have $a_n \le s \le b_n$, which means $s \in  \bigcap_{i=1}^{\infty}I_n$
+    \end{proof}
+    \textbf{Remark:} Intervals must be closed. Consider $A_n = (0, \frac{1}{n})$. Any element of intersection must be bigger than $0$, while smaller than $\frac{1}{n}$. By Archimedian property of real numbers, this is a contradiction, hence $\bigcap_{n=1}^{\infty}A_n = \emptyset$
+\end{theorem}
+\section{Cardinality}
+\begin{definition}[\textbf{Cardinality}]
+    The sets $A,B$ have the same \textbf{cardinality} if there exists a bijective function such that $f: A \rightarrow B$. We donate cardinal equality with $A \sim B$. \\
+    Cardinality mathematically describes the size of the set. 
+
+    The $\sim$ operation is an equivalence relation.
+\end{definition}
+\begin{definition}[\textbf{Countable Sets}] The set $A$ is said to be \textbf{countable} if $A \sim \mathbb{N}$. Otherwise the set is called \textbf{uncountable sets}.
+\end{definition}
+\begin{theorem}[\textbf{Countability of $\mathbb{Q}$.}] The set $\mathbb{Q}$ is countable, that is, $\mathbb{Q} \sim \mathbb{N}$.
+    \begin{proof}
+        There is a proof with visual construction, which maps the rational numbers to natural numbers. 
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\textbf{Uncountability of $\mathbb{R}$}] The set $\mathbb{R}$ is uncountable.
+    \begin{proof}
+        Assume otherwise. Then subset $[0,1] \subseteq \mathbb{R}$ must be also countable
+    \end{proof}
+\end{theorem}
+\begin{definition}[\textbf{Power set}] The powerset $\mathcal{P}(A)$, is the set of all subsets of $A$.
+\end{definition}
+\begin{theorem} Every infinite subset of a countable set is a countable set.
+\end{theorem}
+\begin{theorem} Let $\{ A_n\}, n = 1,2,3, \ldots$ be sequence of countable sets. Then,
+    \[ S = \bigcup_{n=1}^{\infty} A_n\]
+    \begin{proof} Diagonalization method (graphical)
+    \end{proof}
+\end{theorem}
+\section{Exercises}
+\begin{enumerate}
+    \item* Show that for $ A = \{ 1 - \frac{1}{n} \ : \ n \in \mathbb{N}\}, \sup A = 1$.
+        \begin{proof}$A$ is bounded above since clearly $\forall a \in A, a < 1$. Then by AoC,  supremum exists. Let $u = \sup A$. We will show that $ u = 1$.
+
+            Clearly, $1$ is a upper bound, since $1 > 1 - \frac{1}{n}$ is trivial.
+
+            if $u < 1$, we will show that there exists some $a \in A$ such that $u < a$.
+            \[ \forall \epsilon > 0, \ \exists a \in A \ | \ 1 - \epsilon < a = 1 - \frac{1}{n} \Rightarrow \epsilon > \frac{1}{n}\]
+            But, by Archimedean, $\exists n_0 \in \mathbb{N}$ contradicting,
+            \[ u - \epsilon < 1 - \frac{1}{n} \in A\]
+            Therefore $u = 1$.
+        \end{proof} 
+    \item If $S = \{ 1/n - 1/m : n,m \in \mathbb{N}\}$, find $\inf S$ and $\sup S$.
+        \begin{proof}
+            Clearly, $S$ is bounded above and below, therefore supremum and infimum exists by AoC. We will show that $\sup S = 1$, and we can find $\inf S = - \sup (-S) = -1$.  Clearly $1$ is an upper bound. By definition of supremum
+            \[ \exists \epsilon > 0, \ \forall s \in S \ | \ 1 - \epsilon < s = 1/n - 1/m\Rightarrow 1 - \epsilon < 1 - \frac{1}{m}\]
+            Which is equivalent to showing $\exists m \in \mathbb{N} \ | \  \epsilon > \frac{1}{m}$, which is evident from Archimedean.
+        \end{proof}
+    \item* Let $S$ be a set of nonnegative real numbers that is bounded above and let $T = \{ x^2 : x \in S \}$. Prove that if $u = \sup S$, then $u^2 = \sup T$.
+    \begin{proof}
+        Since $S$ is bounded above, $T$ is also bounded above. By AoC, supremum of $T$ exists. Let $t = \sup T$. Clearly, $u^2$ is upper bound of $T$, that is,
+        \[ s \in S \ | \ s^2 \le u^2 \Rightarrow y = s^2 \in T \ | \ y \le u^2\]
+        Now, we will show that $u^2$ the least upper bound, that is,
+        \[ \forall \epsilon > 0 \ \exists s \in S \ | \ u^2-s^2 < \epsilon \Longrightarrow (u-s)(u+s) < \epsilon\]
+        Since $u = \sup S$, we have
+        \[ u -s < \epsilon_0 \ \epsilon_0 > 0\]
+        Moreover, $u+s \le 2u$. Combining these inequalities, we have
+        \[ (u-s)(u+s) < 2u\epsilon_0\]
+        Then we just choose some $\epsilon > 2u\epsilon_0$.
+    \end{proof}
+    \begin{proof}[Second proof]
+        \[ a = \sup A \Rightarrow a^2 = \sup A \cdot \sup A = \sup A^2 = \sup T \]
+    \end{proof}
+    \item Given any $x \in \mathbb{R}$, show that there exists a unique $n \in \mathbb{Z}$ such that $x \le x < n+1$.
+    \begin{proof}
+        By definition of floor function, we have
+        \[ \lfloor x \rfloor \le x < \lfloor x \rfloor + 1\]
+        Clearly, $n - \lfloor x \rfloor$ satisfies our property. Assume two $m,n \in \mathbb{Z}$ exists. WLOG $n > m$. Then,
+        \[ m < n \Rightarrow m+1 \le n \Longrightarrow m+1 \le n \le x < m+1 < n+1\]
+        Clearly, $m+1 < m+1$ is a contradiction.
+    \end{proof}
+    \item* Show that there exists $y \in \mathbb{R}$ such that $y^2 = 3$.
+    \begin{proof}
+        Let $S = \{ s \in \mathbb{R}: 0 \le s, s^2 < 3\}$. Clearly, $S$ is bounded, by AoC, $\sup S = u$ exists. We will show that $u^2 =3$.
+
+        Clearly $u^2 = 3$ is an upper bound.
+
+        If $u^2<3$, we will show that $\exists n \in \mathbb{N}: u + \frac{1}{n} \in S$
+        \begin{align*}
+            \left(u + \frac{1}{n} \right)^2 < 3 \Rightarrow u^2 + \frac{1}{n^2} + \frac{2u}{n} \le u^2 + \frac{1}{n}(2u + \frac{1}{n}) \Longrightarrow \frac{1}{n} < \frac{3-u^2}{2u+1}
+        \end{align*}
+        By Archimedean, such $n$ exists satisfying our last inequality, hence contradiction.
+
+    \end{proof}
+\item Let $I_n = [0, 1/n]$ for $n \in \mathbb{N}$. Prove that $\cap_{n=1}^{\infty}I_n = \{ 0\}$.
+    \begin{proof}
+        For all $n \in \mathbb{N}$, clearly $ 0 \in I_n$. For any $x > 0$, by Archimedean there exists $n_0 \in \mathbb{N}$ such that $\frac{1}{n_0} < x$, hence conclusion.
+    \end{proof}
+\end{enumerate}
+\section{Notes and Mistakes on Exercises}
+\begin{enumerate}
+    \item Avoid ``intuitive'' proofs, prove every part of the proof rigorously. For example, the last exercise section, question 1, I also should prove $1 > 1 - \frac{1}{n}$ regardless of trivality.
+    \item The ``steps'' in the proofs usually should be \textbf{reversed}. In a scratch paper, for example, find and construct an epsion/ natural number(?) and write it formally in the proof.
+    \item Using floor function is wrong in the last exercise. A.P should be used.
+\end{enumerate}
+\section{References}
 \begin{enumerate}
     \item \url{https://math.colorado.edu/~nita/12_Axiom_of_Completeness.pdf}
 \end{enumerate}

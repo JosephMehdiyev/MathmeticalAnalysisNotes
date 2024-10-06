@@ -1,0 +1,51 @@
+\chapter{Sequences and Series}
+\section{Sequences and limits}
+\begin{definition}[\textbf{Sequences}] A sequence is a function with its domain as $\mathbb{N}$.
+\end{definition}
+
+\begin{definition}[\textbf{Converge}]. A sequence $(x_n)$ is said  to conerge to $x \in \mathbb{R}$, or $x$ is said to be limit of $(x_n)$ if
+    \[\forall \epsilon > 0,\exists N \in \mathbb{N} \ : \ |x_n - x| < \epsilon, \ \forall n \ge N\]
+    If limit exists, sequence is \textbf{convergent}, otherwise it is \textbf{divergent}.
+\end{definition}
+
+\begin{definition}[\textbf{Epsilon Neighborhood definition of convergence}]. Below definition with neighborhood is equivalent to the definition above
+    \[\forall \epsilon > 0, \exists N \in \mathbb{N} \ : \ x_n \in V_{\epsilon}(x), \ \forall n > N\]
+\end{definition}
+
+\begin{theorem}[\textbf{Uniqueness of Limits}] The limit of a sequence is \textbf{unique}.
+    \begin{proof}
+        Exercise, see exercise section
+    \end{proof}
+\end{theorem}
+\section{Limit Theorems}
+\begin{definition} A sequence $(x_n)$ is \textbf{bounded} if there exists $U > 0$ such that
+    \[ |x_n| \le U \ \forall n \in \mathbb{N}\]
+    A sequence is bounded \textbf{iff} the set $\{ x_n \ : \ n \in \mathbb{N}\}$ is bounded.
+\end{definition}
+\begin{theorem} A convergent sequence is bounded.
+    \begin{proof}
+        If a sequence converges, then all but finite number of terms of the sequence belongs to $\Vn{x}$. Since $\Vnn{x}$ is bounded, the sequence itself is bounded.
+    \end{proof}
+\end{theorem}
+\begin{theorem}[\textbf{Algebra of limits}] let $X= (x_n),Y =(y_n)$ converge to $x,y$ respectively. Then sequences $X+Y,X-Y,X \cdot Y, cX$ converge to $x+y, x-y, xy, cx$ respectively.\\
+    If $y \neq 0$, $X/Y$ converges to $x/y$. \\
+    Proofs are Exercise.
+\end{theorem}
+
+\begin{theorem}
+    If $(x_n)$ is convergent sequence and $x_n \ge 0$ for all $n \in \mathbb{N}$, then $x = \lim(x_n) \ge 0$.
+\end{theorem}
+\begin{theorem}
+    if $(x_n),(y_n)$ are convergent sequences and $x_n \le y_n$ for all $n \in \mathbb{N}$, then $x \le y$.
+\end{theorem}
+\begin{theorem}
+If $(x_n)$ is a convergent sequence and $a \le x_n \le b$ for all $n \in \mathbb{N}$, then $a \le x \le b$.
+\end{theorem}
+\begin{theorem}[\textbf{Squeeze theorem}]
+    Let $(x_n),(y_n),(z_n)$ be sequences such that
+    \[ x_n \le y_n \le z_n\]
+    And $x = z$. Then $(y_n)$ converges and
+    \[ x = y = z\]
+\end{theorem}
+
+\section{Exercises}

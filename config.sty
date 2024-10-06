@@ -7,6 +7,7 @@
 \usepackage[english]{babel}
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{amsmath}
+\usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{makeidx}
@@ -21,6 +22,7 @@
 \usepackage{blindtext}
 % bolc characters package
 \usepackage{bm}
+
 
 % A package for constructing tables
 \usepackage{multirow}
@@ -95,6 +97,9 @@
 \newmdtheoremenv{corollary}{Corollary}[section]
 \newmdtheoremenv{lemma}{Lemma}[section]
 \newmdtheoremenv{diagram}{Diagram}[section]
+% Epsilon neighborhood shortcut
+\newcommand{\Vn}[1]{V_{\epsilon}(#1)}
+\newcommand{\Vnn}[1]{V_{\epsilon/2}(#1)}
 
 %--------------
 % This makes annoying underfull and overfull errors disappear

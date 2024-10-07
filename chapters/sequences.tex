@@ -14,7 +14,13 @@
 
 \begin{theorem}[\textbf{Uniqueness of Limits}] The limit of a sequence is \textbf{unique}.
     \begin{proof}
-        Exercise, see exercise section
+        For the sake of the contradiction, let $x^{} = x^{'} = \lim_{n \rightarrow \infty} (x_n)$.
+        with the definiton of the limit, $\forall \epsilon > 0,\exists n \in \mathbb{N}$ such that for all $n \ge N,N^{'}$,
+        \[ |x - x_n| < \epsilon /2 \ \forall n \ge N\]
+        \[ |x^{'} - x_n| < \epsilon / 2 \ \forall n \ge N^{'}\]
+        However, by the triangle inequality, we have
+        \[ |x - x^{'}| \le |x- x_n| + |x^{'} - x_n| < \epsilon/2 + \epsilon/2 = \epsilon, \ \forall n \ge K = \max (N, N^{''})\]
+    Since this is $\forall \epsilon > 0$, we conclude that $x = x^{''}$.
     \end{proof}
 \end{theorem}
 \section{Limit Theorems}
@@ -29,7 +35,15 @@
 \end{theorem}
 \begin{theorem}[\textbf{Algebra of limits}] let $X= (x_n),Y =(y_n)$ converge to $x,y$ respectively. Then sequences $X+Y,X-Y,X \cdot Y, cX$ converge to $x+y, x-y, xy, cx$ respectively.\\
     If $y \neq 0$, $X/Y$ converges to $x/y$. \\
-    Proofs are Exercise.
+    \begin{proof}
+        We will show that $X+Y$ property only, others are similar.
+        By definition of convergence, $\forall \epsilon > 0, \exists N,N^{'} \in \mathbb{N}$ such that 
+        \[|x - x_n| < \epsilon /2, \forall n \ge N\]
+        \[|y - y_n| < \epsilon / 2, \forall n \ge N^{'}\]
+    \end{proof}
+    However, notice that $\forall n \ge \max N,N^{'}$
+    \[|(x+y) - (x_n+y_n)| = |(x - x_n)+ (y-y_n)| \le |x - x_n| + |y- y_n| < \epsilon/2 + \epsilon/2 = \epsilon\]
+    Which proves our theorem
 \end{theorem}
 
 \begin{theorem}
@@ -47,5 +61,23 @@ If $(x_n)$ is a convergent sequence and $a \le x_n \le b$ for all $n \in \mathbb
     And $x = z$. Then $(y_n)$ converges and
     \[ x = y = z\]
 \end{theorem}
+All above theorems are proven similarly, the idea is the same.
 
 \section{Exercises}
+\begin{enumerate}
+    \item Show that sequence of $(2^n)$ does not converge.
+    \begin{proof} It suffices to prove that $(2^n)$ is unbounded. Assume otherwise that there exists $M \in \mathbb{R}$ such that $2^n \le M$ for all $n \in \mathbb{N}$. Then,
+        \[ n \le \log_{2}(M) = c\]
+    However by A.P, we can find $n_0$ such that $n_0 > c$ for any $c \in \mathbb{R}$, contradicting our claim.
+    \end{proof}
+    \item Show that $z_n = (a^n+b^n)^{1/n}$ where $0 < a < b$ converge to $b$.
+    \begin{proof}
+        Since $a >0$, we have
+        \[ (a^n+b^n)^{1/n} > (b^n)^{1/n} = b\]
+        Since $a < b$, we have
+        \[ (a^n+b^n)^{1/n} < (2b^n)^{1/n} = 2^{1/n}b\]
+        Then,
+        \[b \le z_n \le 2^{1/n}b\]
+        Using the squeeze theorem and the fact that $2^{1/n}$ converges to $1$, we can see that $\lim z_n = b$.
+    \end{proof}
+\end{enumerate}

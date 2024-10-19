@@ -62,15 +62,51 @@ If $(x_n)$ is a convergent sequence and $a \le x_n \le b$ for all $n \in \mathbb
     \[ x = y = z\]
 \end{theorem}
 All above theorems are proven similarly, the idea is the same.
+\section{Monotone Sequences}
+\begin{definition}
+    $(x_n)$ is \textbf{monotone} if it is either increasing or decreasing.
+\end{definition}
+\begin{theorem}[\textbf{Monotone Convergence Theorem}] A monotone sequence is convergent iff it is bunded. Furthermore, if $x_n$ is a bounded increasing sequence, then
+            \[ \lim(x_n) = \sup \{ x_n : n \in \mathbb{N}\}\]
+Similarly, if $y_n$ is a bounded decreasing sequence, then
+            \[ \lim(y_n) = \inf \{ y_n : n \in \mathbb{N}\}\]
+\end{theorem}
+\section{Subsequences}
+\begin{definition}[\textbf{Subsequences}] Let $\{ n_k\}$ be strict monotone increasing sequence of real numbers, then the sequence $X^{'} = (x_{n_k})$ is called \textbf{subsequence}
+\end{definition}
+\begin{theorem} If a sequence $(x_n)$ converge to $x$, then the subsequence $(x_{n_k})$ also converge to $x$.
+    \begin{proof}
+    By definition, $\forall \epsilon >0, \  \exists N(\epsilon) \in \NN$ such that $\forall n \ge N(\epsilon)$,
+    \[ |x_n -x| < \epsilon\]
+    Because $n_k \ge k$ (induction), then we can find such $k \ge N(\epsilon)$, then $n_k \ge N(\epsilon)$, which means
+    \[ |x_{n_K} - x| < \epsilon\]
+\end{proof}
+\end{theorem}
 
+\begin{theorem}[\textbf{Monotone subsequence theorem}]
+    If $(x_n)$ is a sequence, then there exists a monotone subsequence.
+\end{theorem}
+\begin{theorem}[\textbf{The Bolzano-Weierstrass Theorem}] A bounded sequence has a convergent subsequence.
+    \begin{proof} It is direct consequence of monotone subsequence theorem. Since we can find a monotone subsequence, and is bounded, we can conclude it is convergent.
+    \end{proof}
+\end{theorem}
+\section{The Cauchy Criterion}
+\begin{definition}[\textbf{Cauchy Sequence}]
+    A sequence $(x_n)$ is said to be a \textbf{Cauchy sequence} if $\forall \epsilon >0$, $\exists N(\epsilon) \in \mathbb{N}$,
+    \[ |x_n -x_m| < \epsilon \quad \forall m > n > N\]
+\end{definition}
+\begin{theorem} A sequence is convergent if and only if it is a cauchy sequence
+    \begin{proof}
+    \end{proof}
+\end{theorem}
 \section{Exercises}
 \begin{enumerate}
     \item Show that sequence of $(2^n)$ does not converge.
     \begin{proof} It suffices to prove that $(2^n)$ is unbounded. Assume otherwise that there exists $M \in \mathbb{R}$ such that $2^n \le M$ for all $n \in \mathbb{N}$. Then,
         \[ n \le \log_{2}(M) = c\]
-    However by A.P, we can find $n_0$ such that $n_0 > c$ for any $c \in \mathbb{R}$, contradicting our claim.
+        However by the unboundness of $\mathbb{N}$, we can find $n_0$ such that $n_0 > c$ for any $c \in \mathbb{R}$, contradicting our claim.
     \end{proof}
-    \item Show that $z_n = (a^n+b^n)^{1/n}$ where $0 < a < b$ converge to $b$.
+    \item* Show that $z_n = (a^n+b^n)^{1/n}$ where $0 < a < b$ converge to $b$.
     \begin{proof}
         Since $a >0$, we have
         \[ (a^n+b^n)^{1/n} > (b^n)^{1/n} = b\]
@@ -79,5 +115,56 @@ All above theorems are proven similarly, the idea is the same.
         Then,
         \[b \le z_n \le 2^{1/n}b\]
         Using the squeeze theorem and the fact that $2^{1/n}$ converges to $1$, we can see that $\lim z_n = b$.
+    \end{proof}
+\item* Let $x_1 = 8$ and let $x_{n+1} = \frac{1}{2}x_n +2$ for $n \in \mathbb{N}$. Show that $x_n$ converges, and find the limit.
+    \begin{proof} We will show that $(x_n)$ is monotone and bounded.
+
+        1) $x_n \ge 4$ for all $n \in \mathbb{N}$.
+
+        By induction, for $n= 1,2$ we have $8 > 4$ and $6 > 4$. Now assume it is true for $n = k$. Then,
+        \[x_{k+1} = \frac{1}{2}x_k + 2 > 4\]
+        2) $x_{n+1} < x_n$ for all $n \in \mathbb{N}$.
+        By induction, for $n = 1,2$ we have $6 < 8$. Now assume it is true for $n = k$. Then,
+        \[x_{k+1} = \frac{1}{2}x_k + 2 < \frac{1}{2} x_{k-1} + 2 = x_k\]
+        Then sequence is monotone and bounded, therefore it is convergent to the $\inf\{x_n : n \in \mathbb{N}\} = 4$, which we already know how to prove.
+    \end{proof}
+\item Prove that $e_n = \left( 1 + \frac{1}{n} \right)^{1/n}$ is convergent.
+    \begin{proof}
+        Direct consequence of monotone convergence theorem.
+    \end{proof}
+\item* Prove that $\lim(c^{1/n}) = 1$ for $ 0 < c < 1$.
+    \begin{proof}
+
+    The sequence $(c^{1/n})$ is monotone:
+    \[ c^{1/n} < c^{1/(n+1)} \Leftrightarrow \frac{1}{n} \ln c < \frac{1}{n+1} \ln c \Rightarrow \frac{1}{n} > \frac{1}{n+1} \forall n \in \mathbb{N}\]
+    Which is true, since $n+1 > n \Rightarrow \frac{1}{n+1} < \frac{1}{n}$ for all natural numbers.
+
+    The sequence is bounded:
+    \[ c^{1/n} < 1 \Rightarrow c < 1\]
+    Which is true since $0 < c < 1$. Then, by monotone convergence theorem, our sequence converges. Let limit be $L$. But, the subsequence $x_{2n} = c^{1/2n} = \sqrt{c^{1/n}}$ also converges to the same limit, which means
+    \[ L = \sqrt{L} \Rightarrow L \in \{ 0, 1\}\]
+    $L = 0$ is impossible, since $a^x = 0$ iff $a = 0$, but $0 < c$. Then, $L = 1$.
+    \end{proof}
+\item*  Let $(f_n)$ be the Fibonacci sequence, and let $x_n \coloneq f_{n+1}/f_n$. Given that $\lim(x_n) = L$ exists, find $L$.
+    \begin{proof}
+        \[ x_n = f_{n+1}/f_n = (f_n+ f_{n-1})/f_n = 1 + f_{n-1}/f_n \Rightarrow L = 1 + 1/L\]
+        Solving the quadratic equation, we have $L = \frac{1}{2}(1 + \sqrt{5})$
+    \end{proof}
+\item * Let $(x_n)$ be a bounded sequence and for each $n \in \mathbb{N}$, let $s_n \coloneq \sup \{x_k : k \ge n \}$ and $S \coloneq \inf \{s_n \}$.
+Show that there exists a subsequence of $(x_n)$ that converges to $S$.
+
+\item * Show that the sequence $\left( \frac{n+1}{n}\right)$ is a Cauchy Sequence.
+    \begin{proof}
+        Choose $ M > 2/ \epsilon $, then $\forall \epsilon > 0, m > n \ge M$, $\frac{1}{m} < \frac{1}{n} \le \frac{1}{M} < \epsilon/2$, and,
+        \[ \left| 1 + \frac{1}{n} - 1 - \frac{1}{m} \right| \le  \frac{1}{n} + \frac{1}{m} < \epsilon/2 + \epsilon/2 = \epsilon\]
+        Which shows that our sequence is a cauchy sequence.
+    \end{proof}
+\item* Show that if $(x_n)$ and $(y_n)$ are cauchy sequences, then $(x_n+y_n)$ is also a cauchy sequence.
+    \begin{proof}
+        By definition of cauchy sequence, $\forall \epsilon > 0$,
+        \[ \exists N_1 \in \mathbb{N} \ : \ |x_m - x_n| < \epsilon/2 \quad \forall m > n \ge N_1\]
+        \[ \exists N_2 \in \mathbb{N} \ : \ |y_m - y_n| < \epsilon/2 \quad \forall m > n \ge N_2\]
+        Choose $N = \max(N_1,N_2)$. Then for all $m > n \ge N, \epsilon > 0$,
+        \[ |(x_n+y_m)-(x_m+y_m)| \le |(x_n-x_m) + (y_n+y_m)| < |x_n-x_m| + |y_n-y_m| < \epsilon /2 + \epsilon /2 = \epsilon\]
     \end{proof}
 \end{enumerate}

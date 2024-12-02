@@ -14,6 +14,26 @@
         Which gives contradiction.
     \end{proof}
 \end{theorem}
+\begin{theorem}[\textbf{Sequential criterion of functional limits}]
+    For a function $f: A \to \RR$ and its limit point $c$ and cauchy sequence $(x_n) \subseteq A$ such that $x_n \to c$,
+    \[ \limx{x}{c} f(x) = L \Leftrightarrow f(x_n) \to L\]
+    \begin{proof}
+        $(\Rightarrow)$ Assume that $\limx{x}{c} f(x) = L$. Then, $(\forall \epsilon > 0)(\exists \delta > 0)(\forall x \in A) $
+        \[ |x-c|< \delta \Rightarrow |f(x) -L| < \epsilon\]
+        $\forall (x_n)$ cauchy sequence, we know that $(\forall \delta > 0)(\exists N \in \NN)(\forall n \ge N)$
+        \[ |x_n - c| < \delta\]
+        But this implies that
+        \[ |x_n - c| < \delta \Rightarrow |f(x_n) - L| < \epsilon\]
+
+        $(\Leftarrow)$ For the sake of contradiction, assume $\limx{x}{c} f(x) \neq L$, then by definition, $(\exists \epsilon >0 )(\forall \delta > 0)(\forall x \in A)$,
+        \[ x \in \V_{\delta}(c) \Rightarrow f(x) \not\in \Vn{L}\]
+        Let this $\epsilon$ be notated as $\epsilon_0$. We construct a sequence $(x_n)$ such that for $\delta_n = \frac{1}{n}$,
+        \[ x_n \in \V_{\delta_n}\]
+        Then, clearly $(x_n) \rightarrow c$ since $(\delta_n) \rightarrow 0$. However,
+        \[  x_n \in \V_{\delta_n} \Rightarrow f(x_n) \not\in \Vn{L}\]
+        So, $f(x_n)$ does not converge to $L$, but we assumed $f(x_n) \rightarrow L$, hence contradiction.
+    \end{proof}
+\end{theorem}
 \begin{theorem}[\textbf{Algebra operations on limit}]
     Let $A \subset \RR$, and let $f,g: A \to \RR$, and let $c \in \RR$ be a cluster point of $A$, and let $b \in \RR$.
     
@@ -24,10 +44,76 @@
         \item $\limx{x}{c} (fg) = LM$ 
         \item $\limx{x}{c} (bf) = bL$
         \item $\limx{x}{c} (f/g) = L/M$ if $g(x) \neq 0  \forall x \in A$ and $M \neq 0$.
-
+    \begin{proof}
+        All of these statements can be proven by translating them into sequence equivalent expressions. Since we already know the algebra operations on sequence limits, we are done.
+    \end{proof}
     \end{enumerate}
 \end{theorem}
 
+\begin{definition}[\textbf{Divergence for functional limits}]
+    Let $f: A \to \RR$ and $c$ be a limit point of $f$. If there exists $(x_n)$ and $(y_n)$ such that
+    \[ \lim x_n = \lim y_n = c \land \lim f(x_n) \neq f(y_n)\]
+    We say that the functional limit at $c$ does not exist.
+\end{definition}
+\section{Continous Functions}
+\begin{definition}[\textbf{ Continous functions}]
+    A function $f: A \to \RR$ is \textbf{continous} at a limit point $c \in A$ if $\forall \epsilon >0, \exists \delta >0$ such that
+    \[ |x-c|< \delta \Rightarrow |f(x) - f(c)| <\epsilon\]
+    Other equivalent definitions are,
+    \[\limx{x}{c}f(x) = f(c)\]
+    \[ x \in V_{\delta}(c) \Rightarrow f(x) \in \Vn{f(c)}\]
+    \[ (x_n) \to c \Rightarrow f(x_n) \to f(c)\]
+\end{definition}
+
+\begin{theorem}[Algebra of continous functions]
+Let $f: A \to \RR$ and $g: A \to \RR$ be continous functions at $c \in A$. Then,
+\begin{enumerate}
+    \item $kf(x) \forall k \in \RR$ 
+    \item $f(x) +g(x)$ 
+    \item $f(x)g(x)$ 
+    \item $f(x)/g(x), g(x) \neq 0$
+\end{enumerate}
+Are all continous at $c$. 
+\begin{proof}
+    Direct consequence of algebra of functiona limits.
+\end{proof}
+\end{theorem}
+\begin{theorem}[\textbf{Composition of continous Functions}]
+    Given functions $f,g$ where  $g(f(x))$ is well defined, if $f$ is continous and $g$ is continous at $c,f(c)$ respectively, then $g(f(x))$ is continous at $c$.
+    \begin{proof}
+        We use sequences to prove this theorem, let $(x_n) \to c$ be a cauchy sequence, then by continouty definition,
+        \[ f(x_n) \to f(c) \Rightarrow g(f(x_n)) \to g(f(c))\]
+        since $g$ is continous at $f(c)$. Hence we are done.
+    \end{proof}
+\end{theorem}
+\begin{theorem}[\textbf{Preservation of Compact sets}] Let $f: A \to \RR$ be continous function on $A$. If $K \subset A$ is compact, then $f(K)$ is compact.
+\end{theorem}
+\begin{theorem} If $f:K \to \RR$ is continous on a compact set $K$, then $f$ has minimum and maximumvalues at $K$.
+\end{theorem}
+\begin{definition}
+    A function $f:A \to \RR$ is \textbf{unfiromly continous} if $\forall \epsilon >0 \exists \delta >0$ such that 
+    \[ |x-y| < \delta \Rightarrow |f(x) -f(y)| < \epsilon\]
+\end{definition}
+\begin{theorem} A function that is continous on a compact set $K$ is also uniformly continous at the set $K$.
+\end{theorem}
+
+\begin{theorem}[\textbf{Connectedness are preserved}] Let $f$ be continuous function at $A$. If $E \subset A$ is connected, then $f(E)$ is also connected.
+\end{theorem}
+
+\begin{definition}[\textbf{Right hand limit}] For any limit point $c$ of a set $A$ and $f$ in domain $A$, we define right hand limit as
+    \[ (\forall \epsilon >0) (\exists \delta > 0)(\forall x \in A) 0 < x-c < \delta \Rightarrow |f(x) - L| < \epsilon\]
+    We usually show this in this notation,
+    \[ \limx{x}{c^{+}} f(x) = L\]
+    Similarly we define for left hand limit
+\end{definition}
+
+\begin{theorem} For a function $f$ in domain $A$, and a limit point $c \in A$, limit of $f$ in $c$ exists iff  right hand and left hand limits are equivalent.
+\end{theorem}
+
+
+
+\begin{theorem}[\textbf{Intermediate Value Theorem}] If $f: [a,b] \to \RR$ is continuous and $L \in \RR$ lies in $(f(a), f(b))$ interval, then $\exists c\ in (a,b)$ such that $f(c) = L$.
+\end{theorem}
 
 
 \section{Exercises}

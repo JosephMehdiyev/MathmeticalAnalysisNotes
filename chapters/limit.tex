@@ -101,10 +101,20 @@
     \end{proof}
 \end{theorem}
 \begin{definition}
-    A function $f:A \to \RR$ is \textbf{uniformly continuous} if $\forall \epsilon >0 \exists \delta >0$ such that
+    A function $f:A \to \RR$ is \textbf{uniformly continuous} if $(\forall \epsilon >0)( \exists \delta >0)$ such that $(\forall x, y \in A)$,
     \[ |x-y| < \delta \Rightarrow |f(x) -f(y)| < \epsilon\]
 \end{definition}
-\begin{theorem} A function that is continuous on a compact set $K$ is also uniformly continous at the set $K$.
+\begin{theorem}
+    A function that is continuous on a compact set $K$ is also uniformly continous at the set $K$.
+    \begin{proof}
+        Assume otherwise, then $(\exists \epsilon_0 > 0)$ such that $(\forall (x_n),(y_n) \in K)$,
+        \[ \lim |x_n - y_n| \to 0 \quad while \quad |f(x_n) - f(y_n)| \ge \epsilon_0\]
+        Since $K$ is compact, $(\exists x_{n_k}, y_{n_k})$ such that $x_{n_k} \to x, y_{n_k} \to y$. Then,
+        \[ \lim |x_{n_k} - y_{n_k}| = \lim |x_n - y_n| \to 0\]
+        Which means $x_{n_k},y_{n_k}$ converge to a same value $c \in K$. Since $f$ is continous,
+        \[  (f(x_{n_k}) - f(y_{n_k})) \to 0\]
+        Which contradicts our assumption.
+    \end{proof}
 \end{theorem}
 
 \begin{theorem}[\textbf{Connectedness are preserved}] Let $f$ be continuous function at $A$. If $E \subset A$ is connected, then $f(E)$ is also connected.

@@ -14,12 +14,12 @@
     \begin{proof}
         Let $\{O_i\}$ be finite collection of open sets, and let $a \in \bigcap_{i \in I} O_i$. Since these sets are open, we can find $\epsilon_1, \epsilon_2, \ldots, \epsilon_n$ such that $V_{\epsilon_i}(a) \subseteq O_i \ \forall a \in O_i$
 
-        Then, chose $\epsilon = \min \{ e_i\}$, then 
+        Then, chose $\epsilon = \min \{ e_i\}$, then
         \[ V_{\epsilon}(a) \subseteq V_{\epsilon_i}(a) \ \forall i \in I\]
         Then it follows that the intersection will contain $V_{\epsilon}(a)$, hence we are done.
     \end{proof}
 \end{theorem}
-\begin{definition}[\textbf{Limit points}] A point $x$ is a limit point of the set $A$ if $\forall \epsilon > 0$, 
+\begin{definition}[\textbf{Limit points}] A point $x$ is a limit point of the set $A$ if $\forall \epsilon > 0$,
     \[ V_{\epsilon}(x) \cap A \].
     Contains some point other than $x$.
 
@@ -27,41 +27,41 @@
 \end{definition}
 \begin{theorem} A point x is a limit point of the set $A$ iff $x = \lim a_n$ for some sequence $a_n \neq x$ contained in $A$.
     \begin{proof}
-    $(\Rightarrow)$. $x$ is a limint point iff
-    \[ (\Vn{x} \cap A) \backslash \{x\}  \neq \{ 0\}\]
-    Then $\forall n \in \NN$, choose $\epsilon = 1/n$, then $\exists a_n \in A$ such that
-    \[ a_n \in (V_{1/n}(x) \cap A) \backslash \{x\}\]
-    Which implies $\lim a_n = x$. 
+        $(\Rightarrow)$. $x$ is a limint point iff
+        \[ (\Vn{x} \cap A) \backslash \{x\}  \neq \{ 0\}\]
+        Then $\forall n \in \NN$, choose $\epsilon = 1/n$, then $\exists a_n \in A$ such that
+        \[ a_n \in (V_{1/n}(x) \cap A) \backslash \{x\}\]
+        Which implies $\lim a_n = x$.
 
-    $(\Leftarrow)$. Assume a sequence $(a_n)$ exists in $A$, then $\exists N(\epsilon)$ such that $\forall n \ge N(\epsilon)$, 
-    \[ a_n \in \Vn{x}\]
-    Then, neighborhood of $x$ contains a element distinct from $a_n$,and belongs to $A$.
+        $(\Leftarrow)$. Assume a sequence $(a_n)$ exists in $A$, then $\exists N(\epsilon)$ such that $\forall n \ge N(\epsilon)$,
+        \[ a_n \in \Vn{x}\]
+        Then, neighborhood of $x$ contains a element distinct from $a_n$,and belongs to $A$.
     \end{proof}
 \end{theorem}
 \begin{definition}[\textbf{Isolated Points}] A point is called isolated point of $A$ if it is not a limit point of $A$.
 \end{definition}
 \begin{definition}[\textbf{Closed sets}] A set is closed if it contains its limit points.
 \end{definition}
-\begin{theorem} A set $A \subseteq \R$ is closed iff every Cauchy sequence contained in $A$ has a limit that is also in $A$.
+\begin{theorem} A set $A \subseteq \RR$ is closed iff every Cauchy sequence contained in $A$ has a limit that is also in $A$.
     \begin{proof}
         Since every cauchy sequence is convergent sequence, this theorem is equivalent to definition of closed sets.
     \end{proof}
 \end{theorem}
 \section{Closure}
 \begin{definition}[\textbf{Closure}]
-    Given a set $A \subseteq \R$, let $L$ be the set of all limit points of $A$. Then closure of $A$ is defined as $\overline{A} = A \cup L$.
+    Given a set $A \subseteq \RR$, let $L$ be the set of all limit points of $A$. Then closure of $A$ is defined as $\overline{A} = A \cup L$.
 \end{definition}
 
 \begin{theorem}1
-    For any $A \subseteq R$, $\overline{A}$ is the smallest closed set containing $A$.
+    For any $A \subseteq RR$, $\overline{A}$ is the smallest closed set containing $A$.
 \end{theorem}
 \section{Completements}
-\begin{definition}[\textbf{Complement of a set}] The complement of  a set $A \subseteq \R$ is defined as follows,
-    \[ A^c = \{x \in \R : x \not\in A\}\]
+\begin{definition}[\textbf{Complement of a set}] The complement of  a set $A \subseteq \RR$ is defined as follows,
+    \[ A^c = \{x \in \RR : x \not\in A\}\]
 \end{definition}
 
 \begin{theorem}
-    A set $A \subseteq \R$ is open iff $A^c$ is closed. Consequently, $B$ is closed iff $B^c$ is open.
+    A set $A \subseteq \RR$ is open iff $A^c$ is closed. Consequently, $B$ is closed iff $B^c$ is open.
     \begin{proof} Exercise.
     \end{proof}
 \end{theorem}
@@ -71,10 +71,10 @@
 \end{theorem}
 \section{Compact sets}
 \begin{definition}[\textbf{Compact sets}]
-    A set $A \subseteq \R$ is compact if every sequence in $A$ has a subsequence that also converges in $A$.
+    A set $A \subseteq \RR$ is compact if every sequence in $A$ has a subsequence that also converges in $A$.
 \end{definition}
 \begin{theorem}
-    A set $A \subseteq \R$ is Compact iff it is bounded and closed.
+    A set $A \subseteq \RR$ is Compact iff it is bounded and closed.
     \begin{proof}
         Assume $A$ is unbounded. Then, we can choose a sequence that is also unbounded. Then their subsequence is also unbounded. But sequences have to be bounded to converge, hence contradiction
 
@@ -89,53 +89,53 @@
 \end{theorem}
 \section{Connected sets}
 \begin{definition}
-    Two non-empty sets $A,B \subseteq \R$ are  separated if $\overline{A} \cap B$ and $A \cap \overline{B}$ are both empty. A set $C = A \cup B$ is  then called connected.
+    Two non-empty sets $A,B \subseteq \RR$ are  separated if $\overline{A} \cap B$ and $A \cap \overline{B}$ are both empty. A set $C = A \cup B$ is  then called connected.
 \end{definition}
 \section{Exercises}
 \begin{enumerate}
     \item Let $A$ be a non-empty and bounded above, so that $s = \sup A$ exists. Show that $s \in \overline{A}$.
-        \begin{proof}
-            By definition of supremum, $\exists a \in A$ such that
-            \[ a \in \Vn{s}\]
-            Which means, neighborhood of $s$ contains atleast one element, hence $s$ is a limit point. By definition of closure, $a \in \overline{A}$.
-        \end{proof}
-    \item  Given that $A \subseteq R$, let $L$ be set of all limit points of $A$. Show that $L$ is closed.
-        \begin{proof}
-            Let $x_0$ be a limit point of $L$. Then by definition, $\forall \epsilon > 0, \exists x \in L$ such that
-            \[ |x_0 - x| < \epsilon/2\]
-            However, $x$ is also a limit point of $A$, then $\exists x' \in A$ such that
-            \[ |x - x'| < \epsilon/2\]
-            But notice that
-            \[ |x_0 - x'| \le |x_0 - x| + |x - x'| < \epsilon/2 + \epsilon/2 = \epsilon\]
-            Which means that $x_0$ is limit point of A, then $x_0 \in L$ for all limit points, hence we are finished.
-        \end{proof}
+          \begin{proof}
+              By definition of supremum, $\exists a \in A$ such that
+              \[ a \in \Vn{s}\]
+              Which means, neighborhood of $s$ contains atleast one element, hence $s$ is a limit point. By definition of closure, $a \in \overline{A}$.
+          \end{proof}
+    \item  Given that $A \subseteq RR$, let $L$ be set of all limit points of $A$. Show that $L$ is closed.
+          \begin{proof}
+              Let $x_0$ be a limit point of $L$. Then by definition, $\forall \epsilon > 0, \exists x \in L$ such that
+              \[ |x_0 - x| < \epsilon/2\]
+              However, $x$ is also a limit point of $A$, then $\exists x' \in A$ such that
+              \[ |x - x'| < \epsilon/2\]
+              But notice that
+              \[ |x_0 - x'| \le |x_0 - x| + |x - x'| < \epsilon/2 + \epsilon/2 = \epsilon\]
+              Which means that $x_0$ is limit point of A, then $x_0 \in L$ for all limit points, hence we are finished.
+          \end{proof}
     \item Show that if $A \subseteq$ is compact and non-empty, then $\sup A$ and $\inf A$ both exists and are elements of $A$.
-        \begin{proof}
-            Since $A$ is bounded, by axiom of completeness, their supremum and infimum exists. Let $s = \sup A$. Then by definition of supremum, $ \exists x \in A$ such that
-            \[ x \in \Vn{s}\]
-            Which means $s$ is a limit point. However, since $A$ is also closed, $s \in A$. Similarly infimum can be shown.
-        \end{proof}
+          \begin{proof}
+              Since $A$ is bounded, by axiom of completeness, their supremum and infimum exists. Let $s = \sup A$. Then by definition of supremum, $ \exists x \in A$ such that
+              \[ x \in \Vn{s}\]
+              Which means $s$ is a limit point. However, since $A$ is also closed, $s \in A$. Similarly infimum can be shown.
+          \end{proof}
     \item Open cover definition is equivalent to closed and bounded definition
-    \begin{proof}
-        We will show that $K$ is bounded.
-        Choose a set $O_x = V_{c}(x),\forall x \in K$ for some $c \in \RR$. By axiom of completeness,
-        \[ \sup V_c(x), \inf V_c(x)\]
-        exists. Moreover, by our assumption,
-        \[ \{ O_x : x \in K\}\]
-        is finite. Then,
-        \[\sup \{ O_x : x \in K\} = \max \{ \sup V_c(x) : x \in K \} \]
-        \[\inf \{ O_x : x \in K\} = \min \{ \inf V_c(x) : x \in K \} \]
-        Therefore the set is bounded.
+          \begin{proof}
+              We will show that $K$ is bounded.
+              Choose a set $O_x = V_{c}(x),\forall x \in K$ for some $c \in \RR$. By axiom of completeness,
+              \[ \sup V_c(x), \inf V_c(x)\]
+              exists. Moreover, by our assumption,
+              \[ \{ O_x : x \in K\}\]
+              is finite. Then,
+              \[\sup \{ O_x : x \in K\} = \max \{ \sup V_c(x) : x \in K \} \]
+              \[\inf \{ O_x : x \in K\} = \min \{ \inf V_c(x) : x \in K \} \]
+              Therefore the set is bounded.
 
-        Now we will show that $K$ is closed. Let $(y_n)$ be cauchy sequence such that $\forall n \in \NN, y_n \in K$. We want to show that $\lim y_n = y \in K$. For the sake of contradiction, assume $y \not\in K$. Choose sets $O_x = V_{\frac{|y-x|}{2}}(x), x \in K$. Then
-        \[ \{V_{\frac{|y-x|}{2}}(x) : x \in K\} \ \text{is finite}\]
-        Choose $\epsilon_0 = \min \{ \frac{|y-x|}{2}\}$
-        However, by definition of convergence,
-        \[ |y - y_n| < \epsilon_0 \ \forall n \ge N\]
-        But it contradicts the fact that
-        \[ |y- x| \le |y- y_n| + |y_n-x| < \epsilon_0 + \frac{|y-x|}{2}\le |y-x|\]
-        Hence contradiction, which means $O_x$ actually does not cover our set.
+              Now we will show that $K$ is closed. Let $(y_n)$ be cauchy sequence such that $\forall n \in \NN, y_n \in K$. We want to show that $\lim y_n = y \in K$. For the sake of contradiction, assume $y \not\in K$. Choose sets $O_x = V_{\frac{|y-x|}{2}}(x), x \in K$. Then
+              \[ \{V_{\frac{|y-x|}{2}}(x) : x \in K\} \ \text{is finite}\]
+              Choose $\epsilon_0 = \min \{ \frac{|y-x|}{2}\}$
+              However, by definition of convergence,
+              \[ |y - y_n| < \epsilon_0 \ \forall n \ge N\]
+              But it contradicts the fact that
+              \[ |y- x| \le |y- y_n| + |y_n-x| < \epsilon_0 + \frac{|y-x|}{2}\le |y-x|\]
+              Hence contradiction, which means $O_x$ actually does not cover our set.
 
 
-    \end{proof}
+          \end{proof}
 \end{enumerate}

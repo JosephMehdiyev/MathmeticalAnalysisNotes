@@ -36,17 +36,17 @@
 \end{theorem}
 \begin{theorem}[\textbf{Algebra operations on limit}]
     Let $A \subset \RR$, and let $f,g: A \to \RR$, and let $c \in \RR$ be a cluster point of $A$, and let $b \in \RR$.
-    
+
     Then, similar to sequences, if $\limx{x}{c}f = L$ and $\limx{x}{c}g = M$.
     \begin{enumerate}
         \item $\limx{x}{c} (f+g) = L + M$
-        \item $\limx{x}{c} (f-g) = L - M$ 
-        \item $\limx{x}{c} (fg) = LM$ 
+        \item $\limx{x}{c} (f-g) = L - M$
+        \item $\limx{x}{c} (fg) = LM$
         \item $\limx{x}{c} (bf) = bL$
         \item $\limx{x}{c} (f/g) = L/M$ if $g(x) \neq 0  \forall x \in A$ and $M \neq 0$.
-    \begin{proof}
-        All of these statements can be proven by translating them into sequence equivalent expressions. Since we already know the algebra operations on sequence limits, we are done.
-    \end{proof}
+              \begin{proof}
+                  All of these statements can be proven by translating them into sequence equivalent expressions. Since we already know the algebra operations on sequence limits, we are done.
+              \end{proof}
     \end{enumerate}
 \end{theorem}
 
@@ -66,17 +66,17 @@
 \end{definition}
 
 \begin{theorem}[Algebra of continous functions]
-Let $f: A \to \RR$ and $g: A \to \RR$ be continous functions at $c \in A$. Then,
-\begin{enumerate}
-    \item $kf(x) \forall k \in \RR$ 
-    \item $f(x) +g(x)$ 
-    \item $f(x)g(x)$ 
-    \item $f(x)/g(x), g(x) \neq 0$
-\end{enumerate}
-Are all continous at $c$. 
-\begin{proof}
-    Direct consequence of algebra of functiona limits.
-\end{proof}
+    Let $f: A \to \RR$ and $g: A \to \RR$ be continous functions at $c \in A$. Then,
+    \begin{enumerate}
+        \item $kf(x) \forall k \in \RR$
+        \item $f(x) +g(x)$
+        \item $f(x)g(x)$
+        \item $f(x)/g(x), g(x) \neq 0$
+    \end{enumerate}
+    Are all continous at $c$.
+    \begin{proof}
+        Direct consequence of algebra of functiona limits.
+    \end{proof}
 \end{theorem}
 \begin{theorem}[\textbf{Composition of continous Functions}]
     Given functions $f,g$ where  $g(f(x))$ is well defined, if $f$ is continous and $g$ is continous at $c,f(c)$ respectively, then $g(f(x))$ is continous at $c$.
@@ -86,15 +86,25 @@ Are all continous at $c$.
         since $g$ is continous at $f(c)$. Hence we are done.
     \end{proof}
 \end{theorem}
-\begin{theorem}[\textbf{Preservation of Compact sets}] Let $f: A \to \RR$ be continous function on $A$. If $K \subset A$ is compact, then $f(K)$ is compact.
+\begin{theorem}[\textbf{Preservation of Compact sets*}] Let $f: A \to \RR$ be continous function on $A$. If $K \subset A$ is compact, then $f(K)$ is compact.
+    \begin{proof}
+        Let arbitrary $(y_n) \subseteq f(K)$. Then, $\exists (x_n) \subseteq K$ such that $f(x_n) = y_n$. Since $K$ is compact,
+        \[ \bigg(\exists (x_{n_k}) \subseteq (x_n)\bigg) \:\ x_{n_k}\to x \in K\]
+    \end{proof}
+    We also have a subsequence of $(y_n)$ such that $f(x_{n_k}) = y_{n_k}$. However, since $f$ is continous,
+    \[ y_{n_k} := f(x_{n_k}) \to f(x) \in f(K)\]
+    Which means that $(y_n)$ has a subsequence that converged to a value inside $f(K)$, hence $f(K)$ is compact.
 \end{theorem}
-\begin{theorem} If $f:K \to \RR$ is continous on a compact set $K$, then $f$ has minimum and maximumvalues at $K$.
+\begin{theorem}[\textbf{Extreme Value Theorem EVT}] If $f:K \to \RR$ is continous on a compact set $K$, then $f$ has minimum and maximum values at $K$.
+    \begin{proof}
+        This is direct consequence of preservation of compact sets. We know that $f(K)$ itself is compact, and all compact sets have maximum and minimum. Hence we are done.
+    \end{proof}
 \end{theorem}
 \begin{definition}
-    A function $f:A \to \RR$ is \textbf{unfiromly continous} if $\forall \epsilon >0 \exists \delta >0$ such that 
+    A function $f:A \to \RR$ is \textbf{uniformly continuous} if $\forall \epsilon >0 \exists \delta >0$ such that
     \[ |x-y| < \delta \Rightarrow |f(x) -f(y)| < \epsilon\]
 \end{definition}
-\begin{theorem} A function that is continous on a compact set $K$ is also uniformly continous at the set $K$.
+\begin{theorem} A function that is continuous on a compact set $K$ is also uniformly continous at the set $K$.
 \end{theorem}
 
 \begin{theorem}[\textbf{Connectedness are preserved}] Let $f$ be continuous function at $A$. If $E \subset A$ is connected, then $f(E)$ is also connected.
@@ -119,28 +129,28 @@ Are all continous at $c$.
 \section{Exercises}
 \begin{enumerate}
     \item Let $f \coloneqq \RR \rightarrow \RR$ and let $c \in \RR$. Show that $\underset{x \to c}{\lim} f(x) = L$ if and only if $\limx{x}{0}f(x+c) = L$.
-        \begin{proof}
-            By definition, $\forall \epsilon > 0$, $\exists \delta$ such that
-            \[|x-c| < \delta \quad \text{means} \quad |f(x) -L| < \epsilon\]
-            Choose $x \coloneqq x+c$. Then we have,
-            \[ |x-0| < \delta \quad \text{means} \quad |f(x+c) - L| < \epsilon\]
-        \end{proof}
+          \begin{proof}
+              By definition, $\forall \epsilon > 0$, $\exists \delta$ such that
+              \[|x-c| < \delta \quad \text{means} \quad |f(x) -L| < \epsilon\]
+              Choose $x \coloneqq x+c$. Then we have,
+              \[ |x-0| < \delta \quad \text{means} \quad |f(x+c) - L| < \epsilon\]
+          \end{proof}
     \item Let $I$ be an interval in $\RR$, let $f : I \to \RR$, and let $c \in I$. suppose $\exists K,L$ such that $|f(x) - L| \le K|x-c|$ for $x \in I$. Show that $\limx{x}{c}f(x) = L$.
-        \begin{proof}
-            $\forall \epsilon >0$, choose $\delta = \epsilon/K$, then
-            \[ |x - c| < \epsilon/K \quad \rightarrow \quad |f(x)-L| \le K|x-c| < \epsilon\]
-        \end{proof}
+          \begin{proof}
+              $\forall \epsilon >0$, choose $\delta = \epsilon/K$, then
+              \[ |x - c| < \epsilon/K \quad \rightarrow \quad |f(x)-L| \le K|x-c| < \epsilon\]
+          \end{proof}
     \item Let $I \coloneqq (0,a)$ where $a > 0$, and let $g(x) = x^2$ for $x \in I$. For any points $x,c \in I$, show that $|g(x)-c^2| \le 2a|x-c|$. Use this inequality to prove that $\limx{x}{c}x^2 = c^2$ for any $c \in I$.
-    \begin{proof}
-        Since $x \in I$, $0 < x < a$. Similarly, $ 0 < c < a$. Then,
-        \[ |g(x) -c^2| = |x^2-c^2| = |x-c||x+c| \le 2a|x-c|\]
-        From this inequality, we choose $\delta = \epsilon/2a$. Then $\forall \epsilon > 0$,
-        \[ |x-c| < \epsilon/2a \quad \rightarrow \quad |x^2-c^2|\le 2a|x-c| < \epsilon\]
-    \end{proof}
-\item Show that $\limx{x}{c}x^3 = c^3$ for any $c \in \RR$.
-    \begin{proof}
-        If $x < c$, we can choose $\delta = \epsilon/ 3c$, then $\forall \epsilon > 0$,
-        \[ |x-c| < \epsilon/ 3c \quad \rightarrow \quad |x^3-c^3| = |x-c||x^2+xc+c^2| \le |x-c||3c^2| < \epsilon\]
-    \end{proof}
+          \begin{proof}
+              Since $x \in I$, $0 < x < a$. Similarly, $ 0 < c < a$. Then,
+              \[ |g(x) -c^2| = |x^2-c^2| = |x-c||x+c| \le 2a|x-c|\]
+              From this inequality, we choose $\delta = \epsilon/2a$. Then $\forall \epsilon > 0$,
+              \[ |x-c| < \epsilon/2a \quad \rightarrow \quad |x^2-c^2|\le 2a|x-c| < \epsilon\]
+          \end{proof}
+    \item Show that $\limx{x}{c}x^3 = c^3$ for any $c \in \RR$.
+          \begin{proof}
+              If $x < c$, we can choose $\delta = \epsilon/ 3c$, then $\forall \epsilon > 0$,
+              \[ |x-c| < \epsilon/ 3c \quad \rightarrow \quad |x^3-c^3| = |x-c||x^2+xc+c^2| \le |x-c||3c^2| < \epsilon\]
+          \end{proof}
 \end{enumerate}
 

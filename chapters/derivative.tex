@@ -1,0 +1,24 @@
+\chapter{Derivatives}
+\section{Differentiability}
+\begin{definition}[\textbf{Differentiability}] Let $f : A \to \RR$. $(\forall c \in A)$, the derivative of $f$ at $c$ is defined as
+    \[\dv{f}{x}= \limx{x}{c} \frac{f(x) - f(c)}{x-c}\]
+\end{definition}
+\begin{theorem}
+    If $f$ is differentiable at a point $c \in D$,then $f$ is continous on $c$.
+    \begin{proof}
+        \[\limx{x}{c} (f(x) - f(c) )= \limx{x}{c}\left( \frac{f(x)-f(c)}{x-c} \right) (x-c) = \dv{f}{x} \cdot 0 = 0\]
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[\textbf{Algebra Operations on derivatives}] Similarly, derivatives have algebraic operations.
+    \begin{enumerate}
+        \item $(f+g)'(x) = f(x) + g(x)$
+        \item $(kf)'(x) = k f'(x)$
+        \item $(fg)'(x) = f'(x)g(x) + f(x)g'(x) $
+        \item $(f/g)'(x)= \frac{g(x)f'(x) - g'(x)f(x)}{g(x)^2}$
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[\textbf{Chain Rule}]] Let $f: A \to \RR$ and $g: B \to \RR$. If $f$ is differentiable at $A$ and $g$ is differentiable at $f(x) \in B$, then
+    \[ (g \circ f)'(x)= g'(f(x)) \cdot f'(x)\]
+\end{theorem}

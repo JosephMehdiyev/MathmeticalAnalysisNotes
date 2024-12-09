@@ -13,11 +13,12 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{makeidx}
 \usepackage{amsthm}
+\usepackage{physics}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tikz}
 \usepackage{pgfplots}
- \pgfplotsset{compat=1.18}
+\pgfplotsset{compat=1.18}
 \usepackage{pgf}
 \usepackage{mathrsfs}
 \usepackage{blindtext}
@@ -36,29 +37,28 @@
 \usepackage{embedfile}
 \usepackage{hypgotoe}
 \newcommand*{\embed}[2]{\embedfile{#1}\href{gotoe:embedded=#1}{#2}}
-\newcommand*{\op}[1]{\operatorname{#1}}
 %helps writing derivatives 
 \usepackage{derivative}
 % Bookmark numbering and stuff
 \usepackage{hyperref}
 \hypersetup{
-          bookmarksnumbered,
-            breaklinks=false,
-            linktocpage=false,
-            colorlinks=true,
-            linkcolor=blue,
-            citecolor=black,
-            urlcolor=blue,
-            menucolor=black}
+    bookmarksnumbered,
+    breaklinks=false,
+    linktocpage=false,
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=black,
+    urlcolor=blue,
+    menucolor=black}
 
 %-------------
 
 \usepackage{lastpage}
 \usepackage{fancyhdr}
-\pagestyle{fancy} 
+\pagestyle{fancy}
 
 %dummy text generator, use \lipsum[NUMBER-NUMBER] where NUMBERS are natural numbers between 1 and 150.
-\usepackage{lipsum}  
+\usepackage{lipsum}
 
 %fancy theorems, examples, definitions with boxes
 \usepackage{mdframed}
@@ -74,14 +74,14 @@
 %Personal Commands
 
 %makes a blank page
-\newcommand\blankpage{ 
+\newcommand\blankpage{
     \clearpage
     \begingroup
-      \null
-      \thispagestyle{empty}%
-      \addtocounter{page}{-1}%
-      \hypersetup{pageanchor=false}%
-      \clearpage
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \hypersetup{pageanchor=false}%
+    \clearpage
     \endgroup
 }
 
@@ -108,8 +108,6 @@
 \hfuzz=9999pt
 
 %--------------------------------------
-\def\C{{\op{C}}}
-\def\R{{\op{R}}}
 \def\E{{\mathbb{E}}}
 \def\NN{{\mathbb{N}}}
 \def\RR{{\mathbb{R}}}
@@ -123,7 +121,7 @@
 \setcounter{question}{0}
 
 \newcommand\Que[1]{%
-   \leavevmode\par
-   \stepcounter{question}
-   \noindent
-   \thequestion. Q --- #1\par}
+    \leavevmode\par
+    \stepcounter{question}
+    \noindent
+    \thequestion. Q --- #1\par}
